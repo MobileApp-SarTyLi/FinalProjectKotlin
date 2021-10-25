@@ -110,6 +110,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            android:backgroundTint="@color/OrangeRed"
+            android:text="Update Data"
+            app:layout_constraintEnd_toEndOf="@id/nextPageBtn"
+            app:layout_constraintStart_toStartOf="@id/nextPageBtn"
+            app:layout_constraintTop_toTopOf="@id/nextPageBtn" />
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -242,6 +254,8 @@
                 android:layout_marginStart="5dp"
                 android:textSize="20sp" />
         </LinearLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

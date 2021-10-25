@@ -75,6 +75,14 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        binding.updateBtn.setOnClickListener{
+            val userName = binding.userName.text.toString()
+            val firstName = binding.firstName.text.toString()
+            val lastName = binding.lastName.text.toString()
+            val age = binding.age.text.toString()
+
+            updateData(userName,firstName,lastName,age)
+        }
 
     }
 
@@ -111,6 +119,29 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    private fun updateData(userName: String, firstName: String, lastName: String, age: String) {
+
+        database = FirebaseDatabase.getInstance().getReference("User")
+        val user = mapOf<String,String>(
+            "firstName" to firstName,
+            "lastName" to lastName,
+            "age" to age
+        )
+
+        database.child(userName).updateChildren(user).addOnSuccessListener {
+
+            binding.userName.text.clear()
+            binding.firstName.text.clear()
+            binding.lastName.text.clear()
+            binding.age.text.clear()
+            Toast.makeText(this,"Successfuly Updated",Toast.LENGTH_SHORT).show()
+
+
+        }.addOnFailureListener{
+
+            Toast.makeText(this,"Failed to Update",Toast.LENGTH_SHORT).show()
+
+        }}
 
 
 
