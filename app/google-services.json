@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "598392889431",
+    "project_id": "mobileappstysarli",
+    "storage_bucket": "mobileappstysarli.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598392889431:android:39f570f20f3c4e3aa1c312",
+        "android_client_info": {
+          "package_name": "com.example.mobapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598392889431-ae904jk1ni9436m7d208o0apbgc3vnd4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobapps",
+            "certificate_hash": "2403509c44884a1000c0e2ad89f39200578113a0"
+          }
+        },
+        {
+          "client_id": "598392889431-court5ktf5k917a4dt0sokpdhdu4cpdd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgfdeg6hP6-u7mu3qmz36QJ7-6My6E1NA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598392889431-court5ktf5k917a4dt0sokpdhdu4cpdd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
