@@ -83,6 +83,18 @@ class MainActivity : AppCompatActivity() {
 
             updateData(userName,firstName,lastName,age)
         }
+        binding.deldataBtn.setOnClickListener{
+            val userName : String = binding.etusername.text.toString()
+            if  (userName.isNotEmpty()){
+
+                delData(userName)
+
+            }else{
+
+                Toast.makeText(this,"PLease enter Username",Toast.LENGTH_SHORT).show()
+
+            }
+        }
 
     }
 
@@ -96,11 +108,11 @@ class MainActivity : AppCompatActivity() {
                 val firstname = it.child("firstName").value
                 val lastName = it.child("lastName").value
                 val age = it.child("age").value
-                Toast.makeText(this,"Successfuly Read",Toast.LENGTH_SHORT).show()
                 binding.etusername.text.clear()
                 binding.tvFirstName.text = firstname.toString()
                 binding.tvLastName.text = lastName.toString()
                 binding.tvAge.text = age.toString()
+                Toast.makeText(this,"Successfully Read",Toast.LENGTH_SHORT).show()
 
             }else{
 
@@ -134,7 +146,7 @@ class MainActivity : AppCompatActivity() {
             binding.firstName.text.clear()
             binding.lastName.text.clear()
             binding.age.text.clear()
-            Toast.makeText(this,"Successfuly Updated",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Successfully Updated",Toast.LENGTH_SHORT).show()
 
 
         }.addOnFailureListener{
@@ -142,6 +154,22 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"Failed to Update",Toast.LENGTH_SHORT).show()
 
         }}
+    private fun delData(userName: String){
+        database = FirebaseDatabase.getInstance().getReference("User")
+        //Delete here
+        database.child(userName).removeValue().addOnSuccessListener {
+            binding.etusername.text.clear()
+            Toast.makeText(this,"Successfully Deleted",Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this,"User Doesn't Exist",Toast.LENGTH_SHORT).show()
+
+        }.addOnFailureListener{
+
+            Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
+
+
+        }
+    }
+
 
 
 
