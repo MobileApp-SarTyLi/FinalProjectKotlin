@@ -17,11 +17,21 @@ import com.example.mobapps.databinding.ActivityMainBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import com.spotify.android.appremote.api.ConnectionParams;
+import com.spotify.android.appremote.api.Connector;
+import com.spotify.android.appremote.api.SpotifyAppRemote;
+
+import com.spotify.protocol.client.Subscription;
+import com.spotify.protocol.types.PlayerState;
+import com.spotify.protocol.types.Track;
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var database: DatabaseReference
+    private val clientId = "88c3bb0cc633461eb1fd330fa1232997"
+    private val redirectUri = "sar-li-ty-login-test://callback"
+    private var spotifyAppRemote: SpotifyAppRemote? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,6 +108,50 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        val connectionParams = ConnectionParams.Builder(clientId)
+            .setRedirectUri(redirectUri)
+            .showAuthView(true)
+            .build()
+
+        SpotifyAppRemote.connect(this, connectionParams, object : Connector.ConnectionListener {
+            override fun onConnected(appRemote: SpotifyAppRemote) {
+                spotifyAppRemote = appRemote
+                Log.d("MainActivity", "Connected! Yay!")
+                // Now you can start interacting with App Remote
+                connected()
+            }
+
+            override fun onFailure(throwable: Throwable) {
+                Log.e("MainActivity", throwable.message, throwable)
+                // Something went wrong when attempting to connect! Handle errors here
+            }
+        })
+    }
+
+    private fun connected(){
+        spotifyAppRemote?.let {
+            // Play a playlist
+            val playlistURI = "spotify:playlist:37i9dQZF1DX5g856aiKiDS"
+            it.playerApi.play(playlistURI)
+            // Subscribe to PlayerState
+            it.playerApi.subscribeToPlayerState().setEventCallback {
+                val track: Track = it.track
+                Log.d("MainActivity", track.name + " by " + track.artist.name)
+            }
+        }
+
+
+    }
+
+    override fun onStop(){
+        super.onStop()
+        spotifyAppRemote?.let {
+            SpotifyAppRemote.disconnect(it)
+        }
+    }
+
     private fun readData(userName: String) {
 
         database = FirebaseDatabase.getInstance().getReference("User")
@@ -117,7 +171,6 @@ class MainActivity : AppCompatActivity() {
             }else{
 
                 Toast.makeText(this,"User Doesn't Exist",Toast.LENGTH_SHORT).show()
-
 
             }
 
