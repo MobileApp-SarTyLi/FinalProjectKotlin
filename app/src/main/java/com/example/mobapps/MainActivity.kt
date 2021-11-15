@@ -33,11 +33,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: CountrySelectBinding
     // Firebase Database
     //private lateinit var database: DatabaseReference
-    private val clientId = "88c3bb0cc633461eb1fd330fa1232997"
-    private val redirectUri = "sar-li-ty-login-test://callback"
+
     private var spotifyAppRemote: SpotifyAppRemote? = null
-    var connectionParams = ConnectionParams.Builder(clientId)
-        .setRedirectUri(redirectUri)
+    var connectionParams = ConnectionParams.Builder(SpotifyUserCred.clientId)
+        .setRedirectUri(SpotifyUserCred.redirectUri)
         .showAuthView(true)
         .build()
 
@@ -54,6 +53,8 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
 
             val intent = Intent(this, ReadDataSpotify::class.java)
+            intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbLp5XoPON0wI")
+            intent.putExtra("countryName", "USA")
             startActivity(intent)
 
             Toast.makeText(this, "You Picked USA!", Toast.LENGTH_SHORT).show()
@@ -61,7 +62,9 @@ class MainActivity : AppCompatActivity() {
 
         val button2 = findViewById<Button>(R.id.KoreaBtn)
         button2.setOnClickListener{
-            val intent = Intent(this, ReadDataSpotifyKorea::class.java)
+            val intent = Intent(this, ReadDataSpotify::class.java)
+            intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbJZGli0rRP3r")
+            intent.putExtra("countryName", "South Korea")
             startActivity(intent)
 
             Toast.makeText(this, "You Picked Korea!", Toast.LENGTH_SHORT).show()
@@ -69,7 +72,9 @@ class MainActivity : AppCompatActivity() {
 
         val button3 = findViewById<Button>(R.id.IndiaBtn)
         button3.setOnClickListener{
-            val intent = Intent(this, ReadDataSpotifyIndia::class.java)
+            val intent = Intent(this, ReadDataSpotify::class.java)
+            intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbMWDif5SCBJq")
+            intent.putExtra("countryName", "India")
             startActivity(intent)
 
             Toast.makeText(this, "You Picked India!", Toast.LENGTH_SHORT).show()

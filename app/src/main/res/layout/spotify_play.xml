@@ -22,11 +22,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/countryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
-            android:text="Guess the Song"
+            android:text=""
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -53,13 +54,13 @@
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="75dp"
             android:backgroundTint="@color/Orchid"
             android:text="Skip"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/pauseBtn"
             app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@id/pauseBtn"
+            app:layout_constraintTop_toTopOf="@id/pauseBtn" />
 
         <Button
             android:id="@+id/resumeBtn"
@@ -69,8 +70,8 @@
             android:layout_marginTop="75dp"
             android:backgroundTint="@color/OrangeRed"
             android:text="Resume"
-            app:layout_constraintEnd_toEndOf="@id/skipBtn"
-            app:layout_constraintStart_toStartOf="@id/skipBtn"
+            app:layout_constraintEnd_toEndOf="@id/pauseBtn"
+            app:layout_constraintStart_toStartOf="@id/pauseBtn"
             app:layout_constraintTop_toTopOf="@id/skipBtn" />
 
         <Button
@@ -92,7 +93,7 @@
             android:background="@color/black"
             android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+            app:layout_constraintTop_toBottomOf="@+id/countryTitle"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -100,7 +101,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/countryTitle">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -127,7 +128,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="70dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/countryTitle">
 
             <TextView
                 android:layout_width="wrap_content"

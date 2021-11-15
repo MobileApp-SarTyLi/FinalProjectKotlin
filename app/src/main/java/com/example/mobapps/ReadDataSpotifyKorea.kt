@@ -15,11 +15,11 @@ import com.spotify.protocol.types.Track
 class ReadDataSpotifyKorea : AppCompatActivity() {
 
     private lateinit var binding : SpotifyPlayBinding
-    private val clientId = "88c3bb0cc633461eb1fd330fa1232997"
-    private val redirectUri = "sar-li-ty-login-test://callback"
+//    private val clientId = "55b2423a8bde4abb9911e398e832b82a"
+//    private val redirectUri = "com.slt.mobapps://callback"
     private var spotifyAppRemote: SpotifyAppRemote? = null
-    var connectionParams = ConnectionParams.Builder(clientId)
-        .setRedirectUri(redirectUri)
+    var connectionParams = ConnectionParams.Builder(SpotifyUserCred.clientId)
+        .setRedirectUri(SpotifyUserCred.redirectUri)
         .showAuthView(true)
         .build()
 
