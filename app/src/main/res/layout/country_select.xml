@@ -50,29 +50,29 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/ChinaBtn"
+            android:id="@+id/KoreaBtn"
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="320dp"
             android:backgroundTint="@color/Orchid"
-            android:text="China"
+            android:text="Korea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/FranceBtn"
+            android:id="@+id/IndiaBtn"
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="70dp"
             android:backgroundTint="@color/OrangeRed"
-            android:text="France"
-            app:layout_constraintEnd_toEndOf="@id/ChinaBtn"
-            app:layout_constraintStart_toStartOf="@id/ChinaBtn"
-            app:layout_constraintTop_toTopOf="@id/ChinaBtn" />
+            android:text="India"
+            app:layout_constraintEnd_toEndOf="@id/KoreaBtn"
+            app:layout_constraintStart_toStartOf="@id/KoreaBtn"
+            app:layout_constraintTop_toTopOf="@id/KoreaBtn" />
 
 <!--        <TextView-->
 <!--            android:id="@+id/textView3"-->

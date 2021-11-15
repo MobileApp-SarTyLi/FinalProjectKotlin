@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Seashell"
-    tools:context=".ReadDataSpotify">
+    tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <ImageView
             android:id="@+id/imageView"
@@ -27,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
-            android:text="Retrieve Info"
+            android:text="Guess the Song"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -36,31 +35,56 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/etusername"
+        <Button
+            android:id="@+id/pauseBtn"
             android:layout_width="360dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/input"
-            android:hint="UserName"
-            android:paddingLeft="20dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="380dp"
+            android:backgroundTint="@color/teal_200"
+            android:text="Pause"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/skipBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="450dp"
+            android:backgroundTint="@color/Orchid"
+            android:text="Skip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/resumeBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            android:backgroundTint="@color/OrangeRed"
+            android:text="Resume"
+            app:layout_constraintEnd_toEndOf="@id/skipBtn"
+            app:layout_constraintStart_toStartOf="@id/skipBtn"
+            app:layout_constraintTop_toTopOf="@id/skipBtn" />
 
         <Button
             android:id="@+id/readdataBtn"
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="356dp"
-            android:backgroundTint="@color/teal_200"
-            android:text="READ DATA"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="75dp"
+            android:backgroundTint="@color/ForestGreen"
+            android:text="Reveal Song"
+            app:layout_constraintEnd_toEndOf="@id/resumeBtn"
             app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@id/resumeBtn"
+            app:layout_constraintTop_toTopOf="@id/resumeBtn" />
 
         <View
             android:layout_width="match_parent"
@@ -68,27 +92,27 @@
             android:background="@color/black"
             android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/readdataBtn"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/readdataBtn">
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FIRST NAME:"
+                android:text="Track Title: "
                 android:textColor="@color/black"
                 android:layout_marginStart="20dp"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvFirstName"
+                android:id="@+id/spTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -96,28 +120,26 @@
                 android:layout_marginStart="5dp"
                 android:textSize="20sp" />
 
-
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="70dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/readdataBtn">
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LAST NAME:"
+                android:text="Artist Name: "
                 android:textColor="@color/black"
                 android:layout_marginStart="20dp"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvLastName"
+                android:id="@+id/spArtistName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -125,36 +147,8 @@
                 android:layout_marginStart="5dp"
                 android:textSize="20sp" />
 
-
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="160dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/readdataBtn">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="AGE: "
-                android:textColor="@color/black"
-                android:layout_marginStart="20dp"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvAge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/black"
-                android:layout_marginStart="5dp"
-                android:textSize="20sp" />
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </ScrollView>
