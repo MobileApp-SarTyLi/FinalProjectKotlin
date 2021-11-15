@@ -81,11 +81,11 @@ class MainActivity : AppCompatActivity() {
         button2.setOnClickListener{
             //Test Resume song
             spotifyAppRemote?.let {
-                it.playerApi.resume()
+                it.playerApi.skipNext()
             }
 
-            val intent = Intent(this, ReadData::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, ReadData::class.java)
+//            startActivity(intent)
         }
 
         binding.readdataBtn.setOnClickListener {
@@ -187,7 +187,7 @@ class MainActivity : AppCompatActivity() {
         spotifyAppRemote?.let {
             it.playerApi.subscribeToPlayerState().setEventCallback {
                 val track: Track = it.track
-                tracTitleName = track.artist.name
+                tracTitleName = track.name
             }
         }
         binding.tvTitle.text = tracTitleName

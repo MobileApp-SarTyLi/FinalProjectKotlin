@@ -104,7 +104,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="640dp"
             android:backgroundTint="@color/Orchid"
-            android:text="Resume (Find user)"
+            android:text="Skip (Find user)"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +117,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="75dp"
             android:backgroundTint="@color/OrangeRed"
-            android:text="Update Data"
+            android:text="Resume(Update Data)"
             app:layout_constraintEnd_toEndOf="@id/nextPageBtn"
             app:layout_constraintStart_toStartOf="@id/nextPageBtn"
             app:layout_constraintTop_toTopOf="@id/nextPageBtn" />
