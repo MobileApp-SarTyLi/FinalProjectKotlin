@@ -91,7 +91,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="564dp"
             android:backgroundTint="@color/teal_200"
-            android:text="Login"
+            android:text="Pause (Login)"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +104,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="640dp"
             android:backgroundTint="@color/Orchid"
-            android:text="Find user"
+            android:text="Resume (Find user)"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -265,6 +265,35 @@
                 android:textColor="@color/black"
                 android:layout_marginStart="5dp"
                 android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deldataBtn">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track Title: "
+                android:textColor="@color/black"
+                android:layout_marginStart="20dp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/black"
+                android:layout_marginStart="5dp"
+                android:textSize="20sp" />
+
         </LinearLayout>
 
 

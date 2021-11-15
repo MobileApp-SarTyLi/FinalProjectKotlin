@@ -22,6 +22,7 @@ import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
 
 import com.spotify.protocol.client.Subscription;
+import com.spotify.protocol.types.Album
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
 
@@ -32,6 +33,11 @@ class MainActivity : AppCompatActivity() {
     private val clientId = "88c3bb0cc633461eb1fd330fa1232997"
     private val redirectUri = "sar-li-ty-login-test://callback"
     private var spotifyAppRemote: SpotifyAppRemote? = null
+    var connectionParams = ConnectionParams.Builder(clientId)
+        .setRedirectUri(redirectUri)
+        .showAuthView(true)
+        .build()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +54,12 @@ class MainActivity : AppCompatActivity() {
             val lastName = binding.lastName.text.toString()
             val age = binding.age.text.toString()
             val userName = binding.userName.text.toString()
+
+            //Test Pause song
+            spotifyAppRemote?.let {
+                it.playerApi.pause()
+            }
+
 
             database = FirebaseDatabase.getInstance().getReference("User")
             val User = User(firstName, lastName, age, userName)
@@ -67,6 +79,11 @@ class MainActivity : AppCompatActivity() {
 
         val button2 = findViewById<Button>(R.id.nextPageBtn)
         button2.setOnClickListener{
+            //Test Resume song
+            spotifyAppRemote?.let {
+                it.playerApi.resume()
+            }
+
             val intent = Intent(this, ReadData::class.java)
             startActivity(intent)
         }
@@ -86,6 +103,11 @@ class MainActivity : AppCompatActivity() {
 
         }
         binding.updateBtn.setOnClickListener{
+            //Test Resume song
+            spotifyAppRemote?.let {
+                it.playerApi.resume()
+            }
+
             val userName = binding.userName.text.toString()
             val firstName = binding.firstName.text.toString()
             val lastName = binding.lastName.text.toString()
@@ -110,10 +132,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val connectionParams = ConnectionParams.Builder(clientId)
-            .setRedirectUri(redirectUri)
-            .showAuthView(true)
-            .build()
+//        val connectionParams = ConnectionParams.Builder(clientId)
+//            .setRedirectUri(redirectUri)
+//            .showAuthView(true)
+//            .build()
 
         SpotifyAppRemote.connect(this, connectionParams, object : Connector.ConnectionListener {
             override fun onConnected(appRemote: SpotifyAppRemote) {
@@ -135,12 +157,18 @@ class MainActivity : AppCompatActivity() {
             // Play a playlist
             val playlistURI = "spotify:playlist:37i9dQZF1DX5g856aiKiDS"
             it.playerApi.play(playlistURI)
-            // Subscribe to PlayerState
-            it.playerApi.subscribeToPlayerState().setEventCallback {
-                val track: Track = it.track
-                Log.d("MainActivity", track.name + " by " + track.artist.name)
-            }
+
+
+
+//            // Subscribe to PlayerState
+//            it.playerApi.subscribeToPlayerState().setEventCallback {
+//                val track: Track = it.track
+//                Log.d("MainActivity", track.name + " by " + track.artist.name)
+//            }
+
+
         }
+
 
 
     }
@@ -154,6 +182,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun readData(userName: String) {
 
+        var tracTitleName = ""
+        //Display song title
+        spotifyAppRemote?.let {
+            it.playerApi.subscribeToPlayerState().setEventCallback {
+                val track: Track = it.track
+                tracTitleName = track.artist.name
+            }
+        }
+        binding.tvTitle.text = tracTitleName
+        print(tracTitleName)
+
+
         database = FirebaseDatabase.getInstance().getReference("User")
         database.child(userName).get().addOnSuccessListener {
 
@@ -162,10 +202,14 @@ class MainActivity : AppCompatActivity() {
                 val firstname = it.child("firstName").value
                 val lastName = it.child("lastName").value
                 val age = it.child("age").value
+
+
                 binding.etusername.text.clear()
                 binding.tvFirstName.text = firstname.toString()
                 binding.tvLastName.text = lastName.toString()
                 binding.tvAge.text = age.toString()
+                binding.tvTitle.text = tracTitleName
+
                 Toast.makeText(this,"Successfully Read",Toast.LENGTH_SHORT).show()
 
             }else{

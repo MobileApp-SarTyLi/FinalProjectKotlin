@@ -54,4 +54,7 @@ dependencies {
     implementation files('/Users/tylerliu/Downloads/spotify-app-remote-release-0.7.2.aar')
     implementation "com.google.code.gson:gson:2.6.1"
 
+    implementation 'com.spotify.android:auth:1.2.5'
+
+
 }
