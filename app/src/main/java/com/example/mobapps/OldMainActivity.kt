@@ -63,19 +63,19 @@ class OldMainActivity : AppCompatActivity() {
             }
 
 
-            database = FirebaseDatabase.getInstance().getReference("User")
-            val User = User(firstName, lastName, age, userName)
-            database.child(userName).setValue(User).addOnSuccessListener {
-
-                binding.firstName.text.clear()
-                binding.lastName.text.clear()
-                binding.age.text.clear()
-                binding.userName.text.clear()
-
-                Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener {
-                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
-            }
+//            database = FirebaseDatabase.getInstance().getReference("User")
+//            val User = User(firstName, lastName, age, userName)
+//            database.child(userName).setValue(User).addOnSuccessListener {
+//
+//                binding.firstName.text.clear()
+//                binding.lastName.text.clear()
+//                binding.age.text.clear()
+//                binding.userName.text.clear()
+//
+//                Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+//            }.addOnFailureListener {
+//                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+//            }
 
         }
 

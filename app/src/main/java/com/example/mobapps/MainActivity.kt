@@ -32,7 +32,11 @@ class MainActivity : AppCompatActivity() {
     //private lateinit var binding: ActivityMainBinding
     private lateinit var binding: CountrySelectBinding
     // Firebase Database
-    //private lateinit var database: DatabaseReference
+    private lateinit var database: DatabaseReference
+    // Keeping track of # of times USA Clicked
+    private var usaClickCount = 0
+    private var koreaClickCount = 0
+    private var indiaClickCount = 0
 
     private var spotifyAppRemote: SpotifyAppRemote? = null
     var connectionParams = ConnectionParams.Builder(SpotifyUserCred.clientId)
@@ -47,10 +51,16 @@ class MainActivity : AppCompatActivity() {
         binding = CountrySelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        val userName = "Test"
+//        database = FirebaseDatabase.getInstance().getReference("User")
+//        val User = User(0, 0,  0,userName)
+//        database.child(userName).setValue(User)
+
         //TODO: Change this to an individual fragment
         //Login/Register Button
         val button = findViewById<Button>(R.id.USABtn)
         button.setOnClickListener {
+            usaClickCount++
 
             val intent = Intent(this, ReadDataSpotify::class.java)
             intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbLp5XoPON0wI")
@@ -62,6 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         val button2 = findViewById<Button>(R.id.KoreaBtn)
         button2.setOnClickListener{
+            koreaClickCount++
             val intent = Intent(this, ReadDataSpotify::class.java)
             intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbJZGli0rRP3r")
             intent.putExtra("countryName", "South Korea")
@@ -72,6 +83,7 @@ class MainActivity : AppCompatActivity() {
 
         val button3 = findViewById<Button>(R.id.IndiaBtn)
         button3.setOnClickListener{
+            indiaClickCount++
             val intent = Intent(this, ReadDataSpotify::class.java)
             intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbMWDif5SCBJq")
             intent.putExtra("countryName", "India")
@@ -88,6 +100,17 @@ class MainActivity : AppCompatActivity() {
 //            .setRedirectUri(redirectUri)
 //            .showAuthView(true)
 //            .build()
+
+        // Update to Firebase
+        database = FirebaseDatabase.getInstance().getReference("User")
+        val user = mapOf<String, Int>(
+            "usaVisited" to usaClickCount,
+            "koreaVisited" to koreaClickCount,
+            "indiaVisited" to indiaClickCount
+        )
+
+        database.child("Test").updateChildren(user)
+
 
         SpotifyAppRemote.connect(this, connectionParams, object : Connector.ConnectionListener {
             override fun onConnected(appRemote: SpotifyAppRemote) {

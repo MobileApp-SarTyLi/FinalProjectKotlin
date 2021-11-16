@@ -1,6 +1,6 @@
 class SpotifyUserCred {
     companion object {
-        val clientId = "55b2423a8bde4abb9911e398e832b82a"
-        val redirectUri = "com.slt.mobapps://callback"
+        val clientId = "88c3bb0cc633461eb1fd330fa1232997"
+        val redirectUri = "sar-li-ty-login-test://callback"
     }
 }

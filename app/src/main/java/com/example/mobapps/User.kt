@@ -1,5 +1,5 @@
 package com.example.mobapps
 
-data class User(val firstName : String? = null,val lastName : String? = null,val age : String? = null,val userName : String? = null){
+data class User(val usaVisited : Int? = null,val koreaVisited : Int? = null,val indiaVisited : Int? = null,val userName : String? = null){
 
 }
