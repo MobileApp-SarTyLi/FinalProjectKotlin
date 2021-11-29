@@ -44,8 +44,6 @@ class ReadDataSpotify : AppCompatActivity() {
 
         // set country title
         countryName = intent.getStringExtra("countryName").toString()
-//        var unicode = 0x1F1F8;
-//        var emoji = getEmoji(unicode);
         binding.countryTitle.text = "Guess the #$trackNumber Top $countryName Song"
 
         // clear song and artist
@@ -115,9 +113,6 @@ class ReadDataSpotify : AppCompatActivity() {
                         binding.spArtistName.text = artistName
                         revealCount++
                     }
-//                    //Display text on screen
-//                    binding.spTitle.text = trackTitleName
-//                    binding.spArtistName.text = artistName
 
                 }
                 if(revealCount > 0) {
@@ -128,9 +123,6 @@ class ReadDataSpotify : AppCompatActivity() {
                 }
 
             }
-//            //Display text on screen
-//            binding.spTitle.text = trackTitleName
-//            binding.spArtistName.text = artistName
 
         }
     }
@@ -156,43 +148,17 @@ class ReadDataSpotify : AppCompatActivity() {
 
     private fun connected(playlistURI : String){
         spotifyAppRemote?.let {
-            // Play a playlist USA Global
-//            val playlistURI = uri
 
             it.playerApi.play(playlistURI)
             // repeat the same song until user presses a button
             it.playerApi.setRepeat(2)
             //it.playerApi.toggleRepeat()
-
-//            // Subscribe to PlayerState
-//            it.playerApi.subscribeToPlayerState().setEventCallback {
-//                val track: Track = it.track
-//                Log.d("MainActivity", track.name + " by " + track.artist.name)
-//            }
-
-
         }
 
 
 
     }
 
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//        val textView = findViewById<TextView>(R.id.tv)
-//        val text = "Hey$emoji"
-//        textView.text = text
-//    }
-
-    private fun getEmoji(uni: Int): String? {
-        return String(Character.toChars(uni))
-    }
-
-//    public String getEmoji(int unicode) {
-//        return new String(Character.toChars(unicode));
-//    }
 
     override fun onPause() {
         super.onPause()

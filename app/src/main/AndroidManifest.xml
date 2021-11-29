@@ -27,10 +27,6 @@
 
         <activity android:name=".ReadDataSpotify">
         </activity>
-        <activity android:name=".ReadDataSpotifyKorea">
-        </activity>
-        <activity android:name=".ReadDataSpotifyIndia">
-        </activity>
 
     </application>
 

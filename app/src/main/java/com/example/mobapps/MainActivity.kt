@@ -306,10 +306,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     override fun onStart() {
         super.onStart()
-//        val connectionParams = ConnectionParams.Builder(clientId)
-//            .setRedirectUri(redirectUri)
-//            .showAuthView(true)
-//            .build()
         // Update to Firebase
         database = FirebaseDatabase.getInstance().getReference("User")
         val user = mapOf<String, Int>(
@@ -354,14 +350,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
             it.playerApi.play(playlistURI)
 
 
-
-//            // Subscribe to PlayerState
-//            it.playerApi.subscribeToPlayerState().setEventCallback {
-//                val track: Track = it.track
-//                Log.d("MainActivity", track.name + " by " + track.artist.name)
-//            }
-
-
         }
 
 
@@ -374,21 +362,5 @@ class MainActivity : AppCompatActivity(), LocationListener {
             SpotifyAppRemote.disconnect(it)
         }
     }
-
-
-
-
-
-//        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-//        val viewPager: ViewPager = binding.viewPager
-//        viewPager.adapter = sectionsPagerAdapter
-//        val tabs: TabLayout = binding.tabs
-//        tabs.setupWithViewPager(viewPager)
-//        val fab: FloatingActionButton = binding.fab
-//
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
-//        }
 
 }
