@@ -233,17 +233,53 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     //assisting with GPS
     private fun getLocation() {
+        Log.d("LiGPS", "We are getting location...")
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
+        Log.d("LiGPS", "Requested location updates.")
         //locationManager.getCurrentLocation(LocationManager.GPS_PROVIDER, null, this.mainExecutor, )
         //locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, this)
+        val loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+
+        ///TODO MAY BE A DUPLICATE HERE
+        if (loc != null) {
+            Log.d("LiGPS", "Obtained last known location.")
+            val str = closestCountryCalculator(loc.latitude,loc.longitude)
+            //tvGpsLocation.text = "Closest: " + str
+            if (str == "USA") {
+                usaFn()
+            } else if (str == "Korea") {
+                koreaFn()
+            } else if (str == "Germany") {
+                germanyFn()
+            } else if (str == "India") {
+                indiaFn()
+            } else if (str == "Mexico") {
+                mexicoFn()
+            } else if (str == "Indonesia") {
+                indonesiaFn()
+            } else if (str == "Egypt") {
+                egyptFn()
+            } else if (str == "Russia") {
+                russiaFn()
+            } else {
+                Toast.makeText(this, "Oops! There was an error.", Toast.LENGTH_SHORT)
+            }
+            locationManager.removeUpdates(this)
+        } else {
+            Log.d("LiGPS", "The last known loc was null.")
+        }
+
+
+
     }
     override fun onLocationChanged(location: Location) {
         //this will change title which we dont want butttt just for testing...
-        tvGpsLocation = findViewById(R.id.textView2)
+        //tvGpsLocation = findViewById(R.id.textView2)
+        Log.d("LiGPS", "Did we come in here?")
 //        val locationAddress = LocationAddress()
 //        locationAddress.getAddress...
 
@@ -289,6 +325,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
    //val coords = mapOf("Germany" to arrayOf(51.1657, 10.4515), "USA" to arrayOf(37.0902, 95.7129))
     //self written in order to get the closest country
     fun closestCountryCalculator(lat: Double, lon: Double): String {
+       Log.d("LiGPS", "Calculating closest country..")
        val coords = mapOf("Germany" to arrayOf(51.1657, 10.4515), "USA" to arrayOf(37.0902, -95.7129), "Korea" to arrayOf(35.9078, 127.7669), "India" to arrayOf(20.5937, 78.9629), "Mexico" to arrayOf(23.6345, -102.5528), "Indonesia" to arrayOf(-0.7893, 113.9213), "Egypt" to arrayOf(26.8206, 30.8025), "Russia" to arrayOf(61.5240, 105.3188))
        var min = 99999999999.99.toFloat()
        var closestLoc = "Nowhere"
