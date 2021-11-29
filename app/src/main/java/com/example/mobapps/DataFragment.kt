@@ -44,13 +44,28 @@ class DataFragment : Fragment() {
             val usa = it.child("usaVisited").value
             val korea = it.child("koreaVisited").value
             val india = it.child("indiaVisited").value
+            val mexico = it.child("mexicoVisited").value
+            val germany = it.child("germanyVisited").value
+            val indonesia = it.child("indonesiaVisited").value
+            val egypt = it.child("egyptVisited").value
+            val russia = it.child("russiaVisited").value
             Log.d("Sarah", "usa Visited : $usa")
-            val x = "Number of USA visits: $usa"
-            val y = "Number of Korea visits: $korea"
-            val z = "Number of India visits: $india"
-            binding.usaValueString.text = x
-            binding.koreaValueString.text = y
-            binding.indiaValueString.text = z
+            val v1 = "Number of USA visits: $usa"
+            val v2 = "Number of South Korea visits: $korea"
+            val v3 = "Number of India visits: $india"
+            val v4 = "Number of Mexico visits: $mexico"
+            val v5 = "Number of Germany visits: $germany"
+            val v6 = "Number of Indonesia visits: $indonesia"
+            val v7 = "Number of Egypt visits: $egypt"
+            val v8 = "Number of Russia visits: $russia"
+            binding.usaValueString.text = v1
+            binding.koreaValueString.text = v2
+            binding.indiaValueString.text = v3
+            binding.mexicoValueString.text = v4
+            binding.germanyValueString.text = v5
+            binding.indonesiaValueString.text = v6
+            binding.egyptValueString.text = v7
+            binding.russiaValueString.text = v8
         }
 
 

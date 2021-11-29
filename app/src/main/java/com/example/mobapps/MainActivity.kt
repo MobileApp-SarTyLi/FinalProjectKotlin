@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
     private var usaClickCount = 0
     private var koreaClickCount = 0
     private var indiaClickCount = 0
+    private var mexicoClickCount = 0
+    private var germanyClickCount = 0
+    private var indonesiaClickCount = 0
+    private var egyptClickCount = 0
+    private var russiaClickCount = 0
     //testing fragment backstack
     var showData = false
 
@@ -91,6 +96,61 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
             Toast.makeText(this, "You Picked India!", Toast.LENGTH_SHORT).show()
+        }
+
+        val button4 = findViewById<Button>(R.id.MexicoBtn)
+        button4.setOnClickListener{
+            mexicoClickCount++
+            val intent = Intent(this, ReadDataSpotify::class.java)
+            intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbKUoIkUXteF6")
+            intent.putExtra("countryName", "Mexico")
+            startActivity(intent)
+
+            Toast.makeText(this, "You Picked Mexico!", Toast.LENGTH_SHORT).show()
+        }
+
+        val button5 = findViewById<Button>(R.id.GermanyBtn)
+        button5.setOnClickListener{
+            germanyClickCount++
+            val intent = Intent(this, ReadDataSpotify::class.java)
+            intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbK8BKKMArIyl")
+            intent.putExtra("countryName", "Germany")
+            startActivity(intent)
+
+            Toast.makeText(this, "You Picked Germany!", Toast.LENGTH_SHORT).show()
+        }
+
+        val button6 = findViewById<Button>(R.id.IndonesiaBtn)
+        button6.setOnClickListener{
+            indonesiaClickCount++
+            val intent = Intent(this, ReadDataSpotify::class.java)
+            intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbIZK8aUquyx8")
+            intent.putExtra("countryName", "Indonesia")
+            startActivity(intent)
+
+            Toast.makeText(this, "You Picked Indonesia!", Toast.LENGTH_SHORT).show()
+        }
+
+        val button7 = findViewById<Button>(R.id.EgyptBtn)
+        button7.setOnClickListener{
+            egyptClickCount++
+            val intent = Intent(this, ReadDataSpotify::class.java)
+            intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbMy2EcFg5F9m")
+            intent.putExtra("countryName", "Egypt")
+            startActivity(intent)
+
+            Toast.makeText(this, "You Picked Egypt!", Toast.LENGTH_SHORT).show()
+        }
+
+        val button8 = findViewById<Button>(R.id.RussiaBtn)
+        button8.setOnClickListener{
+            russiaClickCount++
+            val intent = Intent(this, ReadDataSpotify::class.java)
+            intent.putExtra("playlistURI","spotify:playlist:37i9dQZEVXbNALwC1jxb5m")
+            intent.putExtra("countryName", "Russia")
+            startActivity(intent)
+
+            Toast.makeText(this, "You Picked Russia!", Toast.LENGTH_SHORT).show()
         }
 
         val buttonData = findViewById<Button>(R.id.DataBtn)
@@ -143,7 +203,12 @@ class MainActivity : AppCompatActivity() {
         val user = mapOf<String, Int>(
             "usaVisited" to usaClickCount,
             "koreaVisited" to koreaClickCount,
-            "indiaVisited" to indiaClickCount
+            "indiaVisited" to indiaClickCount,
+            "mexicoVisited" to mexicoClickCount,
+            "germanyVisited" to germanyClickCount,
+            "indonesiaVisited" to indonesiaClickCount,
+            "egyptVisited" to egyptClickCount,
+            "russiaVisited" to russiaClickCount,
         )
 
         database.child("Test").updateChildren(user)

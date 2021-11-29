@@ -39,13 +39,26 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/USABtn"
+            android:id="@+id/getCountryBtn"
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="240dp"
+            android:backgroundTint="@color/black"
+            android:text="Get My Country 📍"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/USABtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="310dp"
             android:backgroundTint="@color/teal_200"
-            android:text="USA"
+            android:text="USA 🇺🇸"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,13 +69,13 @@
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="70dp"
             android:backgroundTint="@color/Orchid"
-            android:text="Korea"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="South Korea 🇰🇷"
+            app:layout_constraintEnd_toEndOf="@+id/USABtn"
             app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/USABtn"
+            app:layout_constraintTop_toTopOf="@+id/USABtn" />
 
         <Button
             android:id="@+id/IndiaBtn"
@@ -71,10 +84,76 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="70dp"
             android:backgroundTint="@color/OrangeRed"
-            android:text="India"
+            android:text="India 🇮🇳"
             app:layout_constraintEnd_toEndOf="@id/KoreaBtn"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="@id/KoreaBtn"
-            app:layout_constraintTop_toTopOf="@id/KoreaBtn" />
+            app:layout_constraintTop_toTopOf="@id/KoreaBtn"/>
+
+        <Button
+            android:id="@+id/MexicoBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:backgroundTint="@color/ForestGreen"
+            android:text="Mexico 🇲🇽"
+            app:layout_constraintEnd_toEndOf="@id/IndiaBtn"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@id/IndiaBtn"
+            app:layout_constraintTop_toTopOf="@id/IndiaBtn"/>
+
+        <Button
+            android:id="@+id/GermanyBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:backgroundTint="@color/Gold"
+            android:text="Germany 🇧🇪"
+            app:layout_constraintEnd_toEndOf="@+id/MexicoBtn"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/MexicoBtn"
+            app:layout_constraintTop_toTopOf="@+id/MexicoBtn"/>
+
+        <Button
+            android:id="@+id/IndonesiaBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:backgroundTint="@color/BlueViolet"
+            android:text="Indonesia 🇮🇩"
+            app:layout_constraintEnd_toEndOf="@+id/GermanyBtn"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/GermanyBtn"
+            app:layout_constraintTop_toTopOf="@+id/GermanyBtn"/>
+
+        <Button
+            android:id="@+id/EgyptBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:backgroundTint="@color/Teal"
+            android:text="Egypt 🇪🇬"
+            app:layout_constraintEnd_toEndOf="@+id/IndonesiaBtn"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/IndonesiaBtn"
+            app:layout_constraintTop_toTopOf="@+id/IndonesiaBtn"/>
+
+        <Button
+            android:id="@+id/RussiaBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:backgroundTint="@color/LightCoral"
+            android:text="Russia 🇷🇺"
+            app:layout_constraintEnd_toEndOf="@+id/EgyptBtn"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/EgyptBtn"
+            app:layout_constraintTop_toTopOf="@+id/EgyptBtn"/>
 
         <Button
             android:id="@+id/DataBtn"
@@ -82,20 +161,21 @@
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="70dp"
-            android:backgroundTint="@color/DarkSeaGreen"
+            android:backgroundTint="@color/Black"
             android:text="Show User Data"
-            app:layout_constraintEnd_toEndOf="@id/IndiaBtn"
-            app:layout_constraintStart_toStartOf="@id/IndiaBtn"
-            app:layout_constraintTop_toTopOf="@id/IndiaBtn" />
+            app:layout_constraintEnd_toEndOf="@id/RussiaBtn"
+            app:layout_constraintStart_toStartOf="@id/RussiaBtn"
+            app:layout_constraintTop_toTopOf="@id/RussiaBtn"/>
+
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="70dp"
             android:id="@+id/frag_container"
-            app:layout_constraintEnd_toEndOf="@id/IndiaBtn"
-            app:layout_constraintStart_toStartOf="@id/IndiaBtn"
-            app:layout_constraintTop_toTopOf="@id/IndiaBtn"/>
+            app:layout_constraintEnd_toEndOf="@id/DataBtn"
+            app:layout_constraintStart_toStartOf="@id/DataBtn"
+            app:layout_constraintTop_toTopOf="@id/DataBtn"/>
 
 
         <!--        <TextView-->

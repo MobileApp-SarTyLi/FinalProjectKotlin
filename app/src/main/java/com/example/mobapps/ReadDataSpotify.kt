@@ -13,6 +13,12 @@ import com.spotify.android.appremote.api.Connector
 import com.spotify.android.appremote.api.SpotifyAppRemote
 import com.spotify.protocol.types.Track
 import java.net.URI
+import android.R
+
+import android.widget.TextView
+
+
+
 
 class ReadDataSpotify : AppCompatActivity() {
 
@@ -38,6 +44,8 @@ class ReadDataSpotify : AppCompatActivity() {
 
         // set country title
         countryName = intent.getStringExtra("countryName").toString()
+//        var unicode = 0x1F1F8;
+//        var emoji = getEmoji(unicode);
         binding.countryTitle.text = "Guess the #$trackNumber Top $countryName Song"
 
         // clear song and artist
@@ -168,6 +176,23 @@ class ReadDataSpotify : AppCompatActivity() {
 
 
     }
+
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_main)
+//        val textView = findViewById<TextView>(R.id.tv)
+//        val text = "Hey$emoji"
+//        textView.text = text
+//    }
+
+    private fun getEmoji(uni: Int): String? {
+        return String(Character.toChars(uni))
+    }
+
+//    public String getEmoji(int unicode) {
+//        return new String(Character.toChars(unicode));
+//    }
 
     override fun onPause() {
         super.onPause()

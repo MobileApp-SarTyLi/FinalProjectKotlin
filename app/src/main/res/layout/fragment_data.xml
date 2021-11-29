@@ -28,4 +28,39 @@
         android:text=""
         android:textAlignment="center" />
 
+    <TextView
+        android:id="@+id/mexicoValueString"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/germanyValueString"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/indonesiaValueString"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/egyptValueString"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/russiaValueString"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
+        android:textAlignment="center" />
+
 </LinearLayout>

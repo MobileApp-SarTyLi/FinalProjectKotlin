@@ -11,6 +11,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_read.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/layout/activity_update.xml" value="0.17291666666666666" />
+        <entry key="app/src/main/res/layout/country_select.xml" value="0.2123015873015873" />
+        <entry key="app/src/main/res/layout/fragment_data.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.15450861195542046" />
         <entry key="app/src/main/res/layout/login_screen.xml" value="0.2" />
       </map>
