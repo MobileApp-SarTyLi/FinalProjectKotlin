@@ -94,7 +94,7 @@ class ReadDataSpotify : AppCompatActivity() {
             }
         }
 
-        binding.resumeBtn.setOnClickListener{
+        binding.playBtn.setOnClickListener{
             spotifyAppRemote?.let {
                 it.playerApi.resume()
             }
